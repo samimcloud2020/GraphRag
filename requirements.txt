@@ -1,0 +1,22 @@
+# Environment
+python-dotenv>=1.0.1
+
+# Neo4j
+neo4j>=5.25.0
+langchain-neo4j>=0.1.0
+
+# LangChain core
+langchain-core>=0.3.0
+
+# LLM and embeddings
+langchain-openai>=0.2.0
+
+# Retriever orchestration, RRF, reranking
+langchain-classic>=0.1.0
+
+# Cross-encoder wrapper (HuggingFaceCrossEncoder)
+langchain-community>=0.3.0
+sentence-transformers>=3.0.0
+
+# State machine
+langgraph>=0.2.40
