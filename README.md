@@ -1,37 +1,18 @@
 ## GraphRag with Neo4j DB.
 
-              ┌────────────────┐
-              │ User Question  │
-              └───────┬────────┘
-                      │
-              ┌───────▼────────┐
-              │   classify     │  keyword scan
-              └───────┬────────┘
-                      │
-        ┌─────────────┴──────────────┐
-        │                            │
-    semantic                     aggregation
-        │                            │
-        ▼                            ▼
-┌───────────────────┐      ┌───────────────────┐
-│ semantic_retrieve │      │  cypher_generate  │
-│  ───────────────  │      │  ───────────────  │
-│  vector retriever │      │  LLM → Cypher     │
-│  graph retriever  │      │  validate         │
-│  RRF fusion       │      │  execute          │
-│  cross-encoder    │      │  LLM → answer     │
-│  → top 5 docs     │      │  → answer         │
-└─────────┬─────────┘      └─────────┬─────────┘
-          │                          │
-          ▼                          ▼
-┌───────────────────┐      ┌───────────────────┐
-│ respond_semantic  │      │respond_aggregation│
-│  LLM → answer     │      │  pass-through     │
-└─────────┬─────────┘      └─────────┬─────────┘
-          │                          │
-          └─────────────┬────────────┘
-                        ▼
-                       END
-                        │
-                        ▼
-                  Final Answer
+              
+## What Each Package Provides
+
+python-dotenv--->	Load .env
+neo4j	--->Direct driver for the graph query and driver config
+langchain-neo4j--->	Neo4jVector, Neo4jGraph, GraphCypherQAChain
+langchain-core--->	Base classes: BaseRetriever, Document, PromptTemplate, callbacks
+langchain-openai--->	ChatOpenAI, OpenAIEmbeddings
+langchain-classic--->	EnsembleRetriever, ContextualCompressionRetriever, CrossEncoderReranker
+langchain-community---->	HuggingFaceCrossEncoder (wrapper for sentence-transformers)
+sentence-transformers--->	The actual cross-encoder model (ms-marco-MiniLM-L-6-v2)
+langgraph--->	StateGraph, END for the state machine
+
+
+
+
