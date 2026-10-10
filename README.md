@@ -1,5 +1,5 @@
 ## GraphRag with Neo4j DB.
-![Alt Text](imagess/architecture.jpg)
+![Alt Text](images/architecture.jpg)
               
 ## What Each Package Provides
 
